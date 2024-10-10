@@ -12,8 +12,10 @@
     </header>
     <main>
       <div id="app">
-        <button class="start" type="button">Розпочати</button>
-        <div class="questionnaire">
+        <div class="initial">
+          <button class="start" type="button">Розпочати</button>
+        </div>
+        <div class="questionnaire" style="display: none">
           <form>
             <fieldset>
               <legend>Чи малий розмір вашого проєкту?</legend>
@@ -31,7 +33,7 @@
             </fieldset>
           </form>
         </div>
-        <div class="result-container">
+        <div class="results" style="display: none">
           <div class="recommendations">
             <h3>Рекомендація системи:</h3>
             <dl class="framework-descriptions">
@@ -46,9 +48,10 @@
               <dd class="answer">Ні</dd>
             </dl>
           </div>
+          <button class="restart" type="button">Пройти тест заново</button>
         </div>
-        <button class="restart" type="button">Пройти тест заново</button>
       </div>
     </main>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

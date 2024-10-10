@@ -75,8 +75,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.questionnaire {
+.initial,
+.questionnaire,
+.results {
   margin: 1rem auto 2rem;
+}
+
+.questionnaire {
   padding: 1rem;
   border: 2px solid grey;
   box-shadow: 6px 8px 4px var(--darker-accent-color);
@@ -85,10 +90,6 @@ button:focus-visible {
 .options {
   padding-left: 1rem;
   list-style-type: none;
-}
-
-.result-container {
-  margin: 1rem auto 2rem;
 }
 
 @media (prefers-color-scheme: light) {
