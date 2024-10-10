@@ -7,23 +7,23 @@
         "question": "Чи можете ви використовувати залежності?",
         "answers": [
           {
-            "option": "так",
+            "option": "Так",
             "next": {
               "question": "Чи ваш сайт складається лише зі статичних сторінок з простими взаємодіями?",
               "answers": [
                 {
-                  "option": "так",
+                  "option": "Так",
                   "frameworks": ["Vanilla JS", "HTMX", "Alpine.js", "Svelte", "Vue.js", "Nuxt.js"]
                 },
                 {
-                  "option": "ні",
+                  "option": "Ні",
                   "frameworks": ["Alpine.js", "Svelte", "Vue.js", "Nuxt.js", "React", "Next.js"]
                 }
               ]
             }
           },
           {
-            "option": "ні",
+            "option": "Ні",
             "frameworks": ["Vanilla JS", "HTMX"]
           }
         ]
@@ -35,25 +35,25 @@
         "question": "Чи необхідна вам нативна підтримка TypeScript?",
         "answers": [
           {
-            "option": "так",
+            "option": "Так",
             "next": {
               "question": "Чи є швидкодія веб-сайту критичною?",
               "answers": [
                 {
-                  "option": "так",
+                  "option": "Так",
                   "frameworks": ["Solid.js"]
                 },
                 {
-                  "option": "ні",
+                  "option": "Ні",
                   "next": {
                     "question": "Чи важлива велика спільнота фреймворку?",
                     "answers": [
                       {
-                        "option": "так",
+                        "option": "Так",
                         "frameworks": ["Angular", "React"]
                       },
                       {
-                        "option": "ні",
+                        "option": "Ні",
                         "frameworks": ["Angular", "React", "Solid.js"]
                       }
                     ]
@@ -63,25 +63,25 @@
             }
           },
           {
-            "option": "ні",
+            "option": "Ні",
             "next": {
               "question": "Чи є швидкодія веб-сайту критичною?",
               "answers": [
                 {
-                  "option": "так",
+                  "option": "Так",
                   "frameworks": ["Svelte", "Qwik", "Solid.js"]
                 },
                 {
-                  "option": "ні",
+                  "option": "Ні",
                   "next": {
                     "question": "Чи ваш сайт складається лише зі статичних сторінок з простими взаємодіями?",
                     "answers": [
                       {
-                        "option": "так",
+                        "option": "Так",
                         "frameworks": ["HTMX", "Alpine.js", "Svelte", "Vue.js", "Nuxt.js"]
                       },
                       {
-                        "option": "ні",
+                        "option": "Ні",
                         "frameworks": ["Svelte", "Vue.js", "Nuxt.js", "React", "Next.js", "Angular", "Solid.js"]
                       }
                     ]
@@ -99,25 +99,25 @@
         "question": "Чи необхідна вам нативна підтримка TypeScript?",
         "answers": [
           {
-            "option": "так",
+            "option": "Так",
             "next": {
               "question": "Чи є швидкодія веб-сайту критичною?",
               "answers": [
                 {
-                  "option": "так",
+                  "option": "Так",
                   "frameworks": ["Solid.js"]
                 },
                 {
-                  "option": "ні",
+                  "option": "Ні",
                   "next": {
                     "question": "Чи важлива велика спільнота фреймворку?",
                     "answers": [
                       {
-                        "option": "так",
+                        "option": "Так",
                         "frameworks": ["Angular", "React"]
                       },
                       {
-                        "option": "ні",
+                        "option": "Ні",
                         "frameworks": ["Angular", "React", "Solid.js"]
                       }
                     ]
@@ -127,16 +127,16 @@
             }
           },
           {
-            "option": "ні",
+            "option": "Ні",
             "next": {
               "question": "Чи є швидкодія веб-сайту критичною?",
               "answers": [
                 {
-                  "option": "так",
+                  "option": "Так",
                   "frameworks": ["Qwik", "Solid.js"]
                 },
                 {
-                  "option": "ні",
+                  "option": "Ні",
                   "frameworks": ["Qwik", "Vue.js", "Nuxt.js", "React", "Next.js", "Angular", "Solid.js"]
                 }
               ]

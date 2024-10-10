@@ -1,5 +1,6 @@
 import './style.css'
 import decisionTree from './new_decision_tree_ukr.json'
+import preferenceQuestions from './preferences_ukr.json'
 import frameworksDescription from './frameworks_ukr.json'
 
 const initialComponent = document.querySelector(".initial");
@@ -25,6 +26,7 @@ function startQuestionnaire() {
   resultsComponent.style.display = "none";
 
   state = {
+    step: "tree",
     currQuestion: decisionTree,
     prevQuestions: [],
     results: null,
@@ -43,13 +45,30 @@ function showNextQuestion() {
   const selectedAnswer = state.currQuestion.answers[selectedIndex];
   state.prevQuestions.push([state.currQuestion.question, selectedAnswer.option]);
 
-  if (selectedAnswer.next) {
-    state.currQuestion = selectedAnswer.next;
-    showCurrentQuestion();
-  } else {
-    state.currQuestion = null;
-    state.results = selectedAnswer.frameworks;
-    showResults();
+  if (state.step === "tree") {
+    if (selectedAnswer.next) {
+      state.currQuestion = selectedAnswer.next;
+      showCurrentQuestion();
+    } else {
+      state.results = pointsVector(selectedAnswer.frameworks);
+      state.step = "preferences";
+      state.currQuestion = preferenceQuestions[0];
+      showCurrentQuestion();
+    }
+  } else if (state.step === "preferences") {
+    const pointsVector = scaleVector(state.currQuestion.importance_coefficient, selectedAnswer.vector);
+    state.results = addVectors(state.results, pointsVector);
+
+    const next = preferenceQuestions.findIndex((item) => item.question === state.currQuestion.question) + 1;
+    console.log(`next index is ${next}`);
+
+    if (next < preferenceQuestions.length) {
+      state.currQuestion = preferenceQuestions[next];
+      showCurrentQuestion();
+    } else {
+      state.currQuestion = null;
+      showResults();
+    }
   }
   console.log(state);
 }
@@ -71,7 +90,15 @@ function showResults() {
   questionnaireComponent.style.display = "none";
   resultsComponent.style.display = "block";
 
-  resultsComponent.querySelector(".recommendations > dl").innerHTML = resultsHTML(state.results);
+  const maxScore = Math.max(...state.results);
+  const recommendedFrameworks = state.results
+    .map((score, index) => [score, index])
+    .sort((x, y) => y[0] - x[0])
+    .filter(([score, index]) => score > maxScore * 0.8)
+    .slice(0, 3)
+    .map(([score, index]) => frameworksDescription[index].name);
+
+  resultsComponent.querySelector(".recommendations > dl").innerHTML = resultsHTML(recommendedFrameworks);
   resultsComponent.querySelector(".answers-container > dl").innerHTML = answersHTML(state.prevQuestions);
 }
 
@@ -88,4 +115,18 @@ function answersHTML(questions) {
     <dt class="question">${question}</dt>
     <dd class="answer"><strong>${answer}</strong></dd>`
   ).join("\n");
+}
+
+function pointsVector(frameworks) {
+  console.log(preferenceQuestions.length);
+  const scalingFactor = preferenceQuestions.length * 0.5;
+  return frameworksDescription.map((el) => scalingFactor * (frameworks.includes(el.name) ? 1 : 0));
+}
+
+function scaleVector(coef, v) {
+  return v.map((el) => coef * el);
+}
+
+function addVectors(v1, v2) {
+  return v1.map((el, index) => el + v2[index]);
 }
