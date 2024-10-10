@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ukr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Вибір фронтенд-фреймворку</title>
+  </head>
+  <body>
+    <header>
+      <h1>Рекомендаційна система для вибору JS frontend фреймворку</h1>
+      <p>Дайте відповідь на декілька питань про ваші вподобання і отримайте рекомандацію щодо фронтент-фреймворку для вашого проєкту.</p>
+    </header>
+    <main>
+      <div id="app">
+        <button class="start" type="button">Розпочати</button>
+        <div class="questionnaire">
+          <form>
+            <fieldset>
+              <legend>Чи малий розмір вашого проєкту?</legend>
+              <ul class="options">
+                <li>
+                  <input type="radio" id="yes" name="answer" value="yes" />
+                  <label for="yes">Так</label>
+                </li>
+                <li>
+                  <input type="radio" id="no" name="answer" value="no" />
+                  <label for="no">Ні</label>
+                </li>
+              </ul>
+              <button class="next" type="button">Далі</button>
+            </fieldset>
+          </form>
+        </div>
+        <div class="result-container">
+          <div class="recommendations">
+            <h3>Рекомендація системи:</h3>
+            <dl class="framework-descriptions">
+              <dt class="framework-name"><a href="https://react.dev">React</a></dt>
+              <dd class="framework-description">Один із найпопулярніших фреймворків від Meta для створення динамічних користувацьких інтерфейсів. Підтримує великий екосистемний набір інструментів і є вибором для багатьох великих проєктів через свою гнучкість і потужні можливості.</dd>
+            </dl>
+          </div>
+          <div class="answers-container">
+            <h3>Ваші відповіді:</h3>
+            <dl class="answers">
+              <dt class="question">Чи малий розмір вашого проєкту?</dt>
+              <dd class="answer">Ні</dd>
+            </dl>
+          </div>
+        </div>
+        <button class="restart" type="button">Пройти тест заново</button>
+      </div>
+    </main>
+  </body>
+</html>
